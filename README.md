@@ -48,6 +48,17 @@ You will see a `collection.json` file created at the root of the project.
 
 You simply have to import it in the Postman application, and then you will be ready to test your API on Postman 🚀
 
+## 📊 Roadmap
+
+`TODO` : 
+
+- Add deployment
+- Add tests with Jest
+- Add `CD` with `Github Actions`
+- Add complete `CI/CD` flow
+
+
+
 ## 🗒 Notes
 
 - [Used to fix absolute paths imports](https://dev.to/dotorimook/using-absolute-path-import-with-typescript-babel-nodemon-in-your-node-project-ha7#comment-h6p0)
