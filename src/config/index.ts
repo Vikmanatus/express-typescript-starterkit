@@ -32,7 +32,7 @@ export const permissionConfig: PermissionConfigType = {
 /**
  * Used in the automatic generated Postman collection file
  */
-export const POSTMAN_PROJECT_NAME = 'nodejs-secured-api';
+export const POSTMAN_PROJECT_NAME = 'express-typescript-starterkit';
 
 /**
  * Port used to launch our server
