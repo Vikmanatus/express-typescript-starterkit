@@ -50,14 +50,12 @@ You simply have to import it in the Postman application, and then you will be re
 
 ## 📊 Roadmap
 
-`TODO` : 
+`TODO` :
 
 - Add deployment
 - Add tests with `Jest`
 - Add `CD` with `Github Actions`
 - Add complete `CI/CD` flow
-
-
 
 ## 🗒 Notes
 
