@@ -1,134 +1,60 @@
-import { EventDefinition } from 'postman-collection';
+import dotenv from 'dotenv';
+import {
+  AUTHORIZED_ENDPOINTS,
+  AUTHORIZED_ROLES,
+  MATCH_ENDPOINTS,
+  PermissionConfigType,
+  PostmanConfigType,
+  POSTMAN_FORM_TYPES,
+  REQUEST_TYPES,
+} from '@/types/postman';
 
+dotenv.config({
+  path: '.env',
+});
 /**
- * This type represents the definition of our config object used to :
- * - define the different roles who are allowed to access the route
- * - the URL
- * - the match URL
+ * This object is used to configure our project
+ * We define the URL of the endpoint, the authroized roles and the match URL passed
  */
-export type PermissionConfigType = {
-  [key: string]: PermissionObjectType;
+export const permissionConfig: PermissionConfigType = {
+  home: {
+    url: AUTHORIZED_ENDPOINTS.API_ROOT_ENDPOINT,
+    authorized_roles: [AUTHORIZED_ROLES.USER, AUTHORIZED_ROLES.ADMIN, AUTHORIZED_ROLES.SUPER_ADMIN],
+    matchUrl: MATCH_ENDPOINTS.MATCH_API_ROOT_ENDPOINT,
+  },
+  authRoot: {
+    url: AUTHORIZED_ENDPOINTS.API_ROOT_ENDPOINT,
+    authorized_roles: [AUTHORIZED_ROLES.USER, AUTHORIZED_ROLES.ADMIN, AUTHORIZED_ROLES.SUPER_ADMIN],
+    matchUrl: MATCH_ENDPOINTS.MATCH_AUTH_ROOT_ENDPOINT,
+  },
 };
 
 /**
- * This enum represents the different roles allowed for our role-authentification system
+ * Used in the automatic generated Postman collection file
  */
-export enum AUTHORIZED_ROLES {
-  USER = 'user',
-  ADMIN = 'admin',
-  SUPER_ADMIN = 'super-admin',
-}
+export const POSTMAN_PROJECT_NAME = 'nodejs-secured-api';
 
 /**
- * The endpoints passed to Express router function
+ * Port used to launch our server
  */
-export enum AUTHORIZED_ENDPOINTS {
-  API_ROOT_ENDPOINT = '/',
-}
+export const PORT: number = process.env.PORT ? parseInt(process.env.PORT) : 5000;
+
+export const API_URL: string = process.env.API_URL ? process.env.API_URL : `http://localhost:${PORT}`;
 
 /**
- * This enum represents the different API endpoints decorators passes to express in app.ts file
+ * The object used to manage the automatic configuration of our Postman collection file
  */
-export enum ROUTER_ENDPOINTS {
-  AUTH = '/api/auth',
-}
-
-/**
- * Thses URL's used to check if the user is allowed to access specific endpoint, they can also be useful to create the URL's
- * in our automated postman config file and be passed into Jest function's
- */
-export enum MATCH_ENDPOINTS {
-  MATCH_API_ROOT_ENDPOINT = AUTHORIZED_ENDPOINTS.API_ROOT_ENDPOINT,
-  MATCH_AUTH_ROOT_ENDPOINT = ROUTER_ENDPOINTS.AUTH,
-}
-/**
- * This type defines the different values used in our permission config objects
- */
-export type PermissionObjectType = {
-  url: AUTHORIZED_ENDPOINTS;
-  authorized_roles: AUTHORIZED_ROLES[];
-  matchUrl: MATCH_ENDPOINTS;
-};
-
-/**
- * This interface extends the original permission config type and add's the required addition information for Postman collection file automatic configuration
- */
-export interface PostmanConfigType extends PermissionConfigType {
-  [key: string]: PostmanObjectConfigType;
-}
-
-/**
- * Define the required information for each element of the PostmanConfigType
- */
-export type PostmanObjectConfigType = PermissionObjectType & PostmanAddtionalConfigObjectType;
-
-/**
- * This type represent aditionnal information required for our Postman collection file automatic configuration
- */
-export type PostmanAddtionalConfigObjectType = {
-  isAuthRequired: boolean;
-  requestInformation: PostmanRequestInformationType;
-  requestName: string;
-  event?: PostmanEventInterface[];
-};
-export enum POSTMAN_EVENTS {
-  TEST = 'test',
-}
-export interface PostmanEventInterface extends EventDefinition {
-  listen: POSTMAN_EVENTS;
-  script: PostmanScriptsInterface;
-}
-
-export interface PostmanScriptsInterface {
-  type: POSTMAN_SCRIPT_TYPES;
-  exec: string[];
-}
-export enum POSTMAN_SCRIPT_TYPES {
-  JS = 'text/javascript',
-}
-/**
- * Type used to define what request types and which postman form type string is required for the automatic postman collection configuration
- */
-
-export interface PostmanRequestInformationType<T = unknown> {
-  type: REQUEST_TYPES;
-  postmanFormType: POSTMAN_FORM_TYPES;
-  contentType?: CONTENT_TYPES;
-  data?: T;
-  authorizationClientInfo?: AuthorizationClientInformation;
-}
-
-/**
- * The different request types used
- */
-export enum REQUEST_TYPES {
-  POST = 'POST',
-  PATCH = 'PATCH',
-  GET = 'GET',
-}
-
-/**
- * This enum is used to configure automatically the postman collection file
- */
-export enum POSTMAN_FORM_TYPES {
-  RAW = 'raw',
-  ENCODED = 'urlencoded',
-  FILES = 'formdata',
-  NONE = 'none',
-  FILE = 'file',
-}
-
-/**
- * This enum represents the different content-type used for our Postman configuration file and our Jest test's
- */
-export enum CONTENT_TYPES {
-  JSON = 'application/json',
-  FILES = 'multipart/form-data',
-  URL_ENCODED = 'application/x-www-form-urlencoded',
-  KEY = 'Content-Type',
-}
-
-export type AuthorizationClientInformation = {
-  clientId: string;
-  clientSecret: string;
+export const postmanConfig: PostmanConfigType = {
+  home: {
+    ...permissionConfig.home,
+    isAuthRequired: false,
+    requestInformation: { postmanFormType: POSTMAN_FORM_TYPES.NONE, type: REQUEST_TYPES.GET },
+    requestName: 'Trigger local endpoint',
+  },
+  authRoot: {
+    ...permissionConfig.authRoot,
+    isAuthRequired: false,
+    requestInformation: { postmanFormType: POSTMAN_FORM_TYPES.NONE, type: REQUEST_TYPES.GET },
+    requestName: 'Trigger auth root endpoint',
+  },
 };
