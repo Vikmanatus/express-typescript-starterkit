@@ -64,3 +64,7 @@ You simply have to import it in the Postman application, and then you will be re
 - [Used to fixed development config](https://stackoverflow.com/questions/62092769/ts-node-dev-doesnt-apply-changes-in-auto-reload)
 
 - [Used to generate Postman connection automatically](https://siddharth-lakhara.medium.com/generate-postman-collections-using-node-js-68fcf425d823)
+
+- [Used to fix local `gpg` keychain issue](https://stackoverflow.com/questions/39780452/prevent-gpg-password-prompt-on-mac)
+- 
+- [Used to configure signed commits on `VSCode`](https://dev.to/devmount/signed-git-commits-in-vs-code-36do#:~:text=Set%20up%20VS%20Code,Enables%20commit%20signing%20with%20GPG%E2%80%9D.&text=And%20that%27s%20it!,integration%20and%20sign%20your%20work.)
