@@ -24,12 +24,12 @@ app.use(express.urlencoded({ extended: true }));
 /**
  * The different other endpoints used in our API
  */
- app.use(ROUTER_ENDPOINTS.AUTH, authRouter);
+app.use(ROUTER_ENDPOINTS.AUTH, authRouter);
 
 /**
  * Root API home
  */
- app.get(permissionConfig.home.url, (_req: Request, res: TypedResponse<BasicJsonResponse>) => {
+app.get(permissionConfig.home.url, (_req: Request, res: TypedResponse<BasicJsonResponse>) => {
   return res.status(200).json({ message: 'Welcolme to nodejs-secured-api', success: true });
 });
 
@@ -42,5 +42,6 @@ app.use((_req, res: TypedResponse<BasicJsonResponse>) => {
     success: false,
   });
 });
+
 
 export default app;
