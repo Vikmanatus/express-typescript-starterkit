@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./build/server.js",
-    "dev": "ts-node-dev --no-notify build/src/server.js",
+    "dev": "ts-node-dev -r tsconfig-paths/register --no-notify build/src/server.js",
     "watch": "tsc -w",
     "build": "rm -rf ./build && tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --ext .ts",
-    "generate-postman-collection": "yarn build && ts-node-dev --no-notify build/scripts/generate.postman.collection.js"
+    "generate-postman-collection": "yarn build && ts-node-dev -r tsconfig-paths/register --no-notify build/scripts/generate.postman.collection.js"
   },
   "repository": {
     "type": "git",
@@ -42,14 +42,11 @@
     "postman-collection": "^4.1.6",
     "ts-node": "^10.9.1",
     "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^4.1.1",
     "typescript": "^4.9.3"
   },
   "dependencies": {
     "dotenv": "^16.0.3",
-    "express": "^4.18.2",
-    "module-alias": "^2.2.2"
-  },
-  "_moduleAliases": {
-    "@": "build/src"
+    "express": "^4.18.2"
   }
 }

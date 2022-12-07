@@ -1,4 +1,3 @@
-import 'module-alias/register';
 import http from 'http';
 import expressApp from './app';
 import { PORT } from './config';
