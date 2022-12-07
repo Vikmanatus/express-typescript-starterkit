@@ -39,46 +39,52 @@ const generateHeaders = (element: PostmanObjectConfigType): HeaderDefinition[] =
 };
 
 const generatePostmanBody = (element: PostmanObjectConfigType): RequestBodyDefinition => {
-  if (element.requestInformation.postmanFormType === POSTMAN_FORM_TYPES.NONE) {
-    const requestBodyDef: RequestBodyDefinition = {
-      mode: element.requestInformation.postmanFormType.toString(),
-    };
-    return requestBodyDef;
-  }
-  if (element.requestInformation.postmanFormType === POSTMAN_FORM_TYPES.RAW && element.requestInformation.data) {
-    const requestBodyDef: RequestBodyDefinition = {
-      mode: element.requestInformation.postmanFormType.toString(),
-      raw: JSON.stringify(element.requestInformation.data),
-    };
-    return requestBodyDef;
-  }
-  if (element.requestInformation.postmanFormType === POSTMAN_FORM_TYPES.FILES) {
-    const typedData = element.requestInformation as PostmanRequestInformationType<UploadMediaInterface>;
-    const requestBodyDef: RequestBodyDefinition = {
-      mode: element.requestInformation.postmanFormType.toString(),
-      formdata: [
-        {
-          key: typedData.data?.requestKey,
-          type: POSTMAN_FORM_TYPES.FILE,
-          src: typedData.data?.relativeFilePath,
-        } as OverridePostmanFormDataInterface,
-      ],
-    };
-    return requestBodyDef;
-  }
-  if (element.requestInformation.postmanFormType === POSTMAN_FORM_TYPES.ENCODED) {
-    const formData = element.requestInformation.data as DefaultUnkownObjectType;
-    const urlEncodedForm = [];
-    for (const key in formData) {
-      urlEncodedForm.push({ key: key, value: formData[key] } as PostmanUrlEncodedObjectForm);
+  switch (element.requestInformation.postmanFormType) {
+    case POSTMAN_FORM_TYPES.NONE: {
+      const requestBodyDef: RequestBodyDefinition = {
+        mode: element.requestInformation.postmanFormType.toString(),
+      };
+      return requestBodyDef;
     }
-    const requestBodyDef: RequestBodyDefinition = {
-      mode: element.requestInformation.postmanFormType.toString(),
-      urlencoded: urlEncodedForm,
-    };
-    return requestBodyDef;
+    case POSTMAN_FORM_TYPES.RAW: {
+      if (!element.requestInformation.data) {
+        return {} as RequestBodyDefinition;
+      }
+      const requestBodyDef: RequestBodyDefinition = {
+        mode: element.requestInformation.postmanFormType.toString(),
+        raw: JSON.stringify(element.requestInformation.data),
+      };
+      return requestBodyDef;
+    }
+    case POSTMAN_FORM_TYPES.FILES: {
+      const typedData = element.requestInformation as PostmanRequestInformationType<UploadMediaInterface>;
+      const requestBodyDef: RequestBodyDefinition = {
+        mode: element.requestInformation.postmanFormType.toString(),
+        formdata: [
+          {
+            key: typedData.data?.requestKey,
+            type: POSTMAN_FORM_TYPES.FILE,
+            src: typedData.data?.relativeFilePath,
+          } as OverridePostmanFormDataInterface,
+        ],
+      };
+      return requestBodyDef;
+    }
+    case POSTMAN_FORM_TYPES.ENCODED: {
+      const formData = element.requestInformation.data as DefaultUnkownObjectType;
+      const urlEncodedForm = [];
+      for (const key in formData) {
+        urlEncodedForm.push({ key: key, value: formData[key] } as PostmanUrlEncodedObjectForm);
+      }
+      const requestBodyDef: RequestBodyDefinition = {
+        mode: element.requestInformation.postmanFormType.toString(),
+        urlencoded: urlEncodedForm,
+      };
+      return requestBodyDef;
+    }
+    default:
+      return {} as RequestBodyDefinition;
   }
-  return {} as RequestBodyDefinition;
 };
 
 const generatePostmanTests = (element: PostmanObjectConfigType): PostmanEventInterface[] => {
