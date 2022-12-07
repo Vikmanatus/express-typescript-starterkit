@@ -7,10 +7,10 @@
     "start": "node ./build/server.js",
     "dev": "ts-node-dev --no-notify build/src/server.js",
     "watch": "tsc -w",
-    "build": "tsc",
+    "build": "rm -rf ./build && tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --ext .ts",
-    "generate-postman-collection": "yarn build && ts-node-dev --no-notify build/src/scripts/generate.postman.collection.js"
+    "generate-postman-collection": "yarn build && ts-node-dev --no-notify build/scripts/generate.postman.collection.js"
   },
   "repository": {
     "type": "git",
