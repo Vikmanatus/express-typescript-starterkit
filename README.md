@@ -8,6 +8,14 @@ Please open a terminal and run the following command:
 yarn install
 ```
 
+### 🔐 Generating SSL certificate for development
+
+Please open a terminal and run the following command:
+
+```bash
+bash ./setup/ssl/generate.ssl.sh
+```
+
 ## 🖥 Run the project
 
 Please open a first terminal and run the following command:
