@@ -1,6 +1,7 @@
 import express, { Request } from 'express';
 import morgan from 'morgan';
 import { permissionConfig } from './config';
+import { authApiLimiter } from './config/security';
 import { authRouter } from './routes';
 import { BasicJsonResponse, TypedResponse } from './types';
 import { ROUTER_ENDPOINTS } from './types/postman';
@@ -20,6 +21,12 @@ app.use(morgan('dev'));
  */
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+/**
+ * Adding the rate limiter to all routes defined under /api/auth
+ */
+app.use(ROUTER_ENDPOINTS.AUTH, authApiLimiter);
+
 
 /**
  * The different other endpoints used in our API
@@ -42,6 +49,5 @@ app.use((_req, res: TypedResponse<BasicJsonResponse>) => {
     success: false,
   });
 });
-
 
 export default app;
