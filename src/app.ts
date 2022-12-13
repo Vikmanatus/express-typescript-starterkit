@@ -21,7 +21,7 @@ app.use(morgan('dev'));
 /**
  * Authorizing parsing of JSON body and URL encoded requests
  */
-app.use(express.json());
+app.use(express.json({ limit: '300kb'}));
 app.use(express.urlencoded({ extended: true }));
 
 /**

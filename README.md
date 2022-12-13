@@ -71,6 +71,8 @@ This starterkit is provided with a basic configuration against several security 
 
 - [DOS attakcs with basic configuration to add rate limiting](https://medium.com/@nodepractices/were-under-attack-23-node-js-security-best-practices-e33c146cb87d#:~:text=2.%20Limit%20concurrent%20requests%20using%20a%20middleware)
 
+- [Limit payload size using a reverse-proxy or a middleware](https://medium.com/@nodepractices/were-under-attack-23-node-js-security-best-practices-e33c146cb87d#:~:text=14.%20Limit%20payload%20size%20using%20a%20reverse%2Dproxy%20or%20a%20middleware)
+
 ## 🗒 Generic notes
 
 - [Used to fix absolute paths imports](https://dev.to/dotorimook/using-absolute-path-import-with-typescript-babel-nodemon-in-your-node-project-ha7#comment-h6p0)
