@@ -11,7 +11,7 @@ import helmet from "helmet";
  */
 const app = express();
 
-app.use(helmet());
+app.use(helmet({xssFilter:true}));
 
 /**
  * Used to display information about incoming HTTP requests in the terminal
