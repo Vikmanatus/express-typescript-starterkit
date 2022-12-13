@@ -5,11 +5,13 @@ import { authApiLimiter } from './config/security';
 import { authRouter } from './routes';
 import { BasicJsonResponse, TypedResponse } from './types';
 import { ROUTER_ENDPOINTS } from './types/postman';
-
+import helmet from "helmet";
 /**
  * Global express application
  */
 const app = express();
+
+app.use(helmet());
 
 /**
  * Used to display information about incoming HTTP requests in the terminal
