@@ -1,0 +1,19 @@
+name: Production deployment
+
+on:
+  push:
+    branches: [feature/deploy-gcp]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  compile-typescript:
+    name: Testing typescript compiler availability
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: About
+        run: echo "This job is used to check the config of the version.json file"
+      - name: Checking if Typescript is installed
+        run: tsc --version

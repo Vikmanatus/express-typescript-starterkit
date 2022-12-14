@@ -4,10 +4,12 @@
   "description": "A simple starterkit providing boilerplate code for basic Express application",
   "main": "index.js",
   "scripts": {
-    "start": "node ./build/server.js",
+    "start":"TS_NODE_BASEURL=./build node -r tsconfig-paths/register build/src/server.js",
     "dev": "ts-node-dev -r tsconfig-paths/register --no-notify build/src/server.js",
     "watch": "tsc -w",
-    "build": "rm -rf ./build && tsc",
+    "build": "bash ./setup/deploy/deploy.gcp.sh",
+    "gcp-build":"npm run build",
+    "deploy":"gcloud app deploy",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --ext .ts",
     "generate-postman-collection": "yarn build && ts-node-dev -r tsconfig-paths/register --no-notify build/scripts/generate.postman.collection.js"

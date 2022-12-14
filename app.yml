@@ -1,1 +1,4 @@
 runtime: nodejs16
+manual_scaling:
+  instances: 1
+  max_instances: 1
