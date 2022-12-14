@@ -8,13 +8,13 @@ on:
 
 jobs:
   compile-typescript:
-    name: Testing typescript compiler availability
+    name: Compiling Typescript application and preparing files required for deployment
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: About
-        run: echo "This job is used to check the config of the version.json file"
-      - name: Checking if Typescript is installed
-        run: tsc --version
+      - name: Installing application dependencies
+        run: yarn install
+      - name: Compiling Typescript files
+        run: yarn build
       - name: Debugging locale files
         run: ls -al
