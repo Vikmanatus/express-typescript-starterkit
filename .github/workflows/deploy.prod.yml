@@ -26,8 +26,8 @@ jobs:
         with:
           workload_identity_provider: '${{secrets.WORKLOAD_IDENTITY_PROVIDER}}'
           service_account: '${{secrets.SERVICE_ACCOUNT_EMAIL}}'
-      - name: debugging users
-        run: gcloud auth list
+      - name: Testing gcloud version
+        run: gcloud --version
       - name: Deploy to App Engine
         id: deploy
         uses: google-github-actions/deploy-appengine@v1
