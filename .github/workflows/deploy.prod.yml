@@ -33,5 +33,7 @@ jobs:
           deliverables: app.yml
           project_id: '${{secrets.GCP_PROJECT_ID}}'
           version: v0-0-1
+      - name: debugging users
+        run: gcloud auth list
       - name: Test
         run: curl "${{ steps.deploy.outputs.url }}"
