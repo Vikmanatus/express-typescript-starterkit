@@ -1,7 +1,7 @@
 import https from 'https';
 import fs from 'fs';
 import expressApp from './app';
-import { API_URL, NODE_ENV, PORT } from './config';
+import { NODE_ENV, PORT } from './config';
 
 const options = {
   key: fs.readFileSync('./certs/dev-key.pem'),
@@ -20,5 +20,4 @@ const server = https.createServer(devOptions, expressApp);
 
 server.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
-  console.log('Server available on this URI: ', API_URL);
 });
