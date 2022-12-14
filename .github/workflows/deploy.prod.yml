@@ -19,6 +19,8 @@ jobs:
       id-token: 'write'
     steps:
       - uses: actions/checkout@v3
+      - name: debugging local files
+        run: ls -al
       - name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v1'
         with:
