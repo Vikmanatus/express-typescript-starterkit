@@ -30,8 +30,7 @@ jobs:
         id: deploy
         uses: google-github-actions/deploy-appengine@v1
         with:
-          working_directory: "."
-          deliverables: app.yaml
+          deliverables: app.yml
           project_id: '${{secrets.GCP_PROJECT_ID}}'
           version: 0.0.1
       - name: Test
