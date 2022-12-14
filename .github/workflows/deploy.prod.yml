@@ -35,3 +35,4 @@ jobs:
           version: v0-0-1
       - name: Test
         run: curl "${{ steps.deploy.outputs.url }}"
+
