@@ -30,6 +30,20 @@ Then, in another terminal please run the following command:
 yarn watch
 ```
 
+## 🧪 Tests
+
+To run tests locally, please open a terminal and run the following command:
+
+```bash
+yarn test
+```
+
+## 🚀 Deployment
+
+This feature is still in progress
+
+The documentation will be updated soon
+
 ## 🎨 Lint the project
 
 Please open a terminal and run the following command:
@@ -61,7 +75,7 @@ You simply have to import it in the Postman application, and then you will be re
 `TODO` :
 
 - Add deployment ✅
-- Add tests with `Jest`
+- Add tests with `Jest` ✅
 - Add `CD` with `Github Actions` ✅
 - Add complete `CI/CD` flow
 
@@ -88,3 +102,5 @@ This starterkit is provided with a basic configuration against several security 
 - [Used to fix absolute imports without `module-aliases`](https://medium.com/@fmoessle/typescript-paths-with-ts-node-ts-node-dev-and-jest-671deacf6428)
 
 - [Used to improve API security](https://medium.com/@nodepractices/were-under-attack-23-node-js-security-best-practices-e33c146cb87d#:~:text=2.%20Limit%20concurrent%20requests%20using%20a%20middleware)
+
+- [Used to configure tests with Jest](https://plainenglish.io/blog/beginners-guide-to-testing-jest-with-node-typescript#references)
