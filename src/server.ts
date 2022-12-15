@@ -1,7 +1,6 @@
  import http from 'http';
-import fs from 'fs';
 import expressApp from './app';
-import { NODE_ENV, PORT } from './config';
+import { PORT } from './config';
 
 /**
  * The dev SSL certificate will not be required in production
