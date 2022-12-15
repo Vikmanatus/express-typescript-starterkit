@@ -20,9 +20,7 @@ const devOptions =
 const server = https.createServer(devOptions, expressApp);
 
 server.listen(PORT, () => {
+  console.log("Debugging port: ", process.env.PORT);
   console.log(`Server listening on port ${PORT}`);
 });
 
-process.on('exit', function (code) {
-  console.log('About to exit with code:', code);
-});
