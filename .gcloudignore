@@ -3,3 +3,6 @@
 /build
 collection.json
 /certs
+/.vscode
+.eslint*
+.prettierrc
