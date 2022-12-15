@@ -1,25 +1,37 @@
 import express, { Request } from 'express';
 import morgan from 'morgan';
-import { permissionConfig } from './config';
+import { NODE_ENV, permissionConfig } from './config';
+import { authApiLimiter } from './config/security';
 import { authRouter } from './routes';
 import { BasicJsonResponse, TypedResponse } from './types';
 import { ROUTER_ENDPOINTS } from './types/postman';
-
+import helmet from 'helmet';
 /**
  * Global express application
  */
 const app = express();
 
-/**
- * Used to display information about incoming HTTP requests in the terminal
- */
-app.use(morgan('dev'));
+app.use(helmet({ xssFilter: true, hidePoweredBy: true }));
+
+if (NODE_ENV === 'development') {
+  /**
+   * Used to display information about incoming HTTP requests in the terminal
+   */
+  app.use(morgan('dev'));
+}
+
+app.set('trust proxy', true);
 
 /**
  * Authorizing parsing of JSON body and URL encoded requests
  */
-app.use(express.json());
+app.use(express.json({ limit: '300kb' }));
 app.use(express.urlencoded({ extended: true }));
+
+/**
+ * Adding the rate limiter to all routes defined under /api/auth
+ */
+app.use(ROUTER_ENDPOINTS.AUTH, authApiLimiter);
 
 /**
  * The different other endpoints used in our API
@@ -42,6 +54,5 @@ app.use((_req, res: TypedResponse<BasicJsonResponse>) => {
     success: false,
   });
 });
-
 
 export default app;

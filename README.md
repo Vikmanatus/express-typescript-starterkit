@@ -8,13 +8,13 @@ Please open a terminal and run the following command:
 yarn install
 ```
 
-### 🔐 Generating SSL certificate for development
+<!-- ### 🔐 Generating SSL certificate for development
 
 Please open a terminal and run the following command:
 
 ```bash
 bash ./setup/ssl/generate.ssl.sh
-```
+``` -->
 
 ## 🖥 Run the project
 
@@ -29,6 +29,20 @@ Then, in another terminal please run the following command:
 ```bash
 yarn watch
 ```
+
+## 🧪 Tests
+
+To run tests locally, please open a terminal and run the following command:
+
+```bash
+yarn test
+```
+
+## 🚀 Deployment
+
+This feature is still in progress
+
+The documentation will be updated soon
 
 ## 🎨 Lint the project
 
@@ -60,12 +74,20 @@ You simply have to import it in the Postman application, and then you will be re
 
 `TODO` :
 
-- Add deployment
-- Add tests with `Jest`
-- Add `CD` with `Github Actions`
+- Add deployment ✅
+- Add tests with `Jest` ✅
+- Add `CD` with `Github Actions` ✅
 - Add complete `CI/CD` flow
 
-## 🗒 Notes
+## 🕵️ Security notes
+
+This starterkit is provided with a basic configuration against several security issues:
+
+- [DOS attakcs with basic configuration to add rate limiting](https://medium.com/@nodepractices/were-under-attack-23-node-js-security-best-practices-e33c146cb87d#:~:text=2.%20Limit%20concurrent%20requests%20using%20a%20middleware)
+
+- [Limit payload size using a reverse-proxy or a middleware](https://medium.com/@nodepractices/were-under-attack-23-node-js-security-best-practices-e33c146cb87d#:~:text=14.%20Limit%20payload%20size%20using%20a%20reverse%2Dproxy%20or%20a%20middleware)
+
+## 🗒 Generic notes
 
 - [Used to fix absolute paths imports](https://dev.to/dotorimook/using-absolute-path-import-with-typescript-babel-nodemon-in-your-node-project-ha7#comment-h6p0)
 
@@ -78,3 +100,7 @@ You simply have to import it in the Postman application, and then you will be re
 - [Used to configure signed commits on `VSCode`](https://dev.to/devmount/signed-git-commits-in-vs-code-36do#:~:text=Set%20up%20VS%20Code,Enables%20commit%20signing%20with%20GPG%E2%80%9D.&text=And%20that%27s%20it!,integration%20and%20sign%20your%20work.)
 
 - [Used to fix absolute imports without `module-aliases`](https://medium.com/@fmoessle/typescript-paths-with-ts-node-ts-node-dev-and-jest-671deacf6428)
+
+- [Used to improve API security](https://medium.com/@nodepractices/were-under-attack-23-node-js-security-best-practices-e33c146cb87d#:~:text=2.%20Limit%20concurrent%20requests%20using%20a%20middleware)
+
+- [Used to configure tests with Jest](https://plainenglish.io/blog/beginners-guide-to-testing-jest-with-node-typescript#references)

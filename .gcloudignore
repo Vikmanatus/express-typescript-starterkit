@@ -1,0 +1,12 @@
+/node_modules
+/build
+collection.json
+/certs
+/.vscode
+.eslint*
+.prettierrc
+/setup/ssl/*
+/scripts
+/src/utils/postman/*
+gha-creds-*.json
+/tests
