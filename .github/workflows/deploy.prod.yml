@@ -33,7 +33,7 @@ jobs:
         uses: google-github-actions/deploy-appengine@v1
         with:
           deliverables: app.yaml
-          project_id: '${{secrets.GCP_PROJECT_ID}}'
+          project_id: '${{secrets.GCP_PROJECT}}'
           version: v0-0-1
       - name: Test
         run: curl "${{ steps.deploy.outputs.url }}"
