@@ -1,5 +1,4 @@
 /node_modules
-.env
 /build
 collection.json
 /certs
@@ -9,3 +8,4 @@ collection.json
 /setup/ssl/*
 /scripts
 /src/utils/postman/*
+gha-creds-*.json
