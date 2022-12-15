@@ -20,6 +20,8 @@ if (NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
+app.set('trust proxy', true);
+
 /**
  * Authorizing parsing of JSON body and URL encoded requests
  */
