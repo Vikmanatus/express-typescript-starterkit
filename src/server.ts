@@ -1,6 +1,7 @@
- import http from 'http';
+//  import http from 'http';
 import expressApp from './app';
 import { PORT } from './config';
+import https from 'https';
 
 /**
  * The dev SSL certificate will not be required in production
@@ -17,7 +18,8 @@ import { PORT } from './config';
  * Creating HTTP server
  */
 // const server = https.createServer(devOptions, expressApp);
-const server = http.createServer(expressApp);
+
+const server = https.createServer(expressApp)
 
 server.listen(PORT, () => {
   console.log("Debugging port: ", process.env.PORT);
