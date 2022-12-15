@@ -33,13 +33,11 @@ jobs:
         uses: 'google-github-actions/get-secretmanager-secrets@v1'
         with:
           secrets: |-
-            fake_secret_1:${{secrets.GCP_SECRET_API_PREFIX}}/test-secret-value
-            fake_secret_2:${{secrets.GCP_SECRET_API_PREFIX}}/fake-second-secet
+            NODE_ENV:${{secrets.GCP_SECRET_API_PREFIX}}/NODE_ENV
       - name: Testing fake secret output
         run: |
-          echo '${{ steps.secrets.outputs.fake_secret_1 }}' >> .env
-          echo '${{ steps.secrets.outputs.fake_secret_2 }}' >> .env
-          cat .env
+          echo '${{ steps.secrets.outputs.NODE_ENV }}' >> .env
+          ls -al
       - name: Deploy to App Engine
         id: deploy
         uses: google-github-actions/deploy-appengine@v1
