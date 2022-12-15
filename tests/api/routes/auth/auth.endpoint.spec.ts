@@ -1,5 +1,5 @@
 import 'jest';
-import expressApp from '../../../../src/app';
+import expressApp from '@/app';
 import request from 'supertest';
 test('Should create a user successfully', async () => {
   try {

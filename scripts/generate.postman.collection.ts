@@ -1,3 +1,3 @@
-import { generatePostmanCollection } from '../src/utils/postman';
+import { generatePostmanCollection } from '@/utils/postman';
 
 generatePostmanCollection();
