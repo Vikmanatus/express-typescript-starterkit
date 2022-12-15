@@ -9,3 +9,4 @@ collection.json
 /scripts
 /src/utils/postman/*
 gha-creds-*.json
+/tests
