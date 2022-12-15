@@ -6,4 +6,6 @@ collection.json
 /.vscode
 .eslint*
 .prettierrc
-/setup
+/setup/ssl/*
+/scripts
+/src/utils/postman/*
