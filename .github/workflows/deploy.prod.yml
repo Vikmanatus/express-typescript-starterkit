@@ -7,7 +7,20 @@ on:
   workflow_dispatch:
 
 jobs:
+  test:
+    name: Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: debugging local files
+        run: ls -al
+      - name: Installing application dependencies
+        run: yarn install
+      - name: Run test with Jest
+        run: yarn test
+
   compile-typescript:
+    needs: test
     name: Authentificate the worklow and deploy the app to App Engine
     runs-on: ubuntu-latest
     # env:
