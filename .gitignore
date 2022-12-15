@@ -3,3 +3,4 @@
 /build
 collection.json
 /certs
+gha-creds-*.json

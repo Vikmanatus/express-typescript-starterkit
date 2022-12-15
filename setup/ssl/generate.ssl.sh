@@ -2,7 +2,7 @@
 DIR=./certs
 if [ -d "$DIR" ];
 then
-    echo "$DIR directory exists.\nErasing content"
+    echo "$DIR directory exists.Erasing content"
     rm -rf ./certs
     mkdir certs
 else

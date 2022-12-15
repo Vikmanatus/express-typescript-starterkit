@@ -8,13 +8,13 @@ Please open a terminal and run the following command:
 yarn install
 ```
 
-### 🔐 Generating SSL certificate for development
+<!-- ### 🔐 Generating SSL certificate for development
 
 Please open a terminal and run the following command:
 
 ```bash
 bash ./setup/ssl/generate.ssl.sh
-```
+``` -->
 
 ## 🖥 Run the project
 
@@ -60,9 +60,9 @@ You simply have to import it in the Postman application, and then you will be re
 
 `TODO` :
 
-- Add deployment
+- Add deployment ✅
 - Add tests with `Jest`
-- Add `CD` with `Github Actions`
+- Add `CD` with `Github Actions` ✅
 - Add complete `CI/CD` flow
 
 ## 🕵️ Security notes
