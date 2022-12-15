@@ -34,6 +34,6 @@ jobs:
         with:
           deliverables: app.yaml
           project_id: '${{secrets.GCP_PROJECT}}'
-          version: v0-0-3
+          version: v0-0-4
       - name: Test
         run: curl "${{ steps.deploy.outputs.url }}"
