@@ -41,7 +41,15 @@ export const PORT: number = process.env.PORT ? parseInt(process.env.PORT) : 5000
 
 export const API_URL: string = process.env.API_URL ? process.env.API_URL : `http://localhost:${PORT}`;
 
-export const NODE_ENV:string = process.env.NODE_ENV ? process.env.NODE_ENV : "development"
+export const NODE_ENV: string = process.env.NODE_ENV ? process.env.NODE_ENV : 'development';
+
+export const SONAR_URL: string = process.env.SONAR_URL ? process.env.SONAR_URL : 'http://localhost:${PORT}';
+
+export const SONAR_TOKEN: string = process.env.SONAR_TOKEN ? process.env.SONAR_TOKEN : 'your_sonar_project_token';
+
+export const SONAR_PROJECTKEY: string = process.env.SONAR_PROJECTKEY ? process.env.SONAR_PROJECTKEY : 'your_sonar_project_id';
+
+
 /**
  * The object used to manage the automatic configuration of our Postman collection file
  */
