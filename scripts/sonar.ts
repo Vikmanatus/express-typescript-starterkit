@@ -51,8 +51,8 @@ const sonarScanner = async () => {
   }
 
   //  Function Callback (the execution of the analysis is asynchronous).
-  const callback = (result: unknown) => {
-    console.log('Sonarqube scanner result:', result);
+  const callback = () => {
+    console.log('Sonarqube scanner succes:');
   };
 
   scanner(params, callback);
