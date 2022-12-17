@@ -105,7 +105,7 @@ export const generatePostmanCollection = (): void => {
 
   const postmanConfigObject: PostmanObjectConfigType[] = Object.values(postmanConfig);
 
-  // TODO: refactor to foreach loop
+  // TODO: refactor map to foreach loop
   postmanConfigObject.map((element) => {
     const postmanRequestBody: OverridePostmanItemConfig = {
       name: element.requestName,
