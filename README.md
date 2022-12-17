@@ -38,6 +38,19 @@ To run tests locally, please open a terminal and run the following command:
 yarn test
 ```
 
+## 🧹 Code quality
+
+You can run code analysis with Sonarqube, please create a `.env` file matching the required keys in `.env.example`
+
+The `sonar-scanner` command is runned by an npm package, feel free to edit the configuration of the script in `package.json` accordiang to your needs if you have already Sonarqube locally on your machine
+
+
+Then please open a terminal, and run the following command:
+
+```bash
+yarn sonar-scanner
+```
+
 ## 🚀 Deployment
 
 This feature is still in progress
