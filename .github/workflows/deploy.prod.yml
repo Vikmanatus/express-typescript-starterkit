@@ -19,6 +19,7 @@ jobs:
         env:
           SONAR_TOKEN: '${{ secrets.SONAR_TOKEN }}'
           SONAR_HOST_URL: '${{ secrets.SONAR_URL }}'
+          SONAR_SCANNER_OPTS: '${{secrets.SONAR_ROOT_CERT}}'
           # SONAR_ROOT_CERT: ${{ secrets.SONAR_ROOT_CERT }}
   test:
     name: Tests
