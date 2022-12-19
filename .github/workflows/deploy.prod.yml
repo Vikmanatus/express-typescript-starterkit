@@ -8,25 +8,23 @@ on:
 
 jobs:
   sonar-scanner:
-    name: Tests
+    name: Running Sonarqube scanner
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: debugging local files
-        run: ls -al
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: '${{ secrets.SONAR_TOKEN }}'
           SONAR_HOST_URL: '${{ secrets.SONAR_URL }}'
-          SONAR_SCANNER_OPTS: '${{secrets.SONAR_ROOT_CERT}}'
-          # SONAR_ROOT_CERT: ${{ secrets.SONAR_ROOT_CERT }}
+          SONAR_ROOT_CERT: '${{secrets.SONAR_ROOT_CERT}}'
   test:
-    name: Tests
+    needs: sonar-scanner
+    name: Running tests with Jest
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: debugging local files
+      - name: Debugging local files
         run: ls -al
       - name: Installing application dependencies
         run: yarn install
