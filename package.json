@@ -13,8 +13,7 @@
     "test": "jest --coverage",
     "test:watch": "jest --watch",
     "lint": "eslint . --ext .ts",
-    "generate-postman-collection": "yarn build && ts-node-dev -r tsconfig-paths/register --no-notify build/scripts/generate.postman.collection.js",
-    "sonar-scanner": "yarn build && ts-node-dev -r tsconfig-paths/register --no-notify build/scripts/sonar.js"
+    "generate-postman-collection": "yarn build && ts-node-dev -r tsconfig-paths/register --no-notify build/scripts/generate.postman.collection.js"
   },
   "repository": {
     "type": "git",
