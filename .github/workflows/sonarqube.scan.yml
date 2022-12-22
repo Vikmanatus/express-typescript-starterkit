@@ -1,0 +1,26 @@
+name: SonarQube analysis
+
+on:
+  push:
+    branches: ['main', develop]
+  pull_request:
+    branches: ['main']
+  workflow_dispatch:
+
+permissions:
+  pull-requests: read # allows SonarQube to decorate PRs with analysis results
+
+jobs:
+  Analysis:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Analyze with SonarQube
+
+        # You can pin the exact commit or the version.
+        # uses: SonarSource/sonarqube-scan-action@v1.1.0
+        uses: sonarsource/sonarqube-scan-action@master
+        env:
+          SONAR_TOKEN: '${{ secrets.SONAR_TOKEN }}'
+          SONAR_HOST_URL: '${{ secrets.SONAR_URL }}'
