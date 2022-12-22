@@ -105,6 +105,7 @@ export const generatePostmanCollection = (): void => {
 
   const postmanConfigObject: PostmanObjectConfigType[] = Object.values(postmanConfig);
 
+  // TODO: refactor map to foreach
   postmanConfigObject.map((element) => {
     const postmanRequestBody: OverridePostmanItemConfig = {
       name: element.requestName,
@@ -120,6 +121,7 @@ export const generatePostmanCollection = (): void => {
     const requestElement = new Item(postmanRequestBody);
     postmanCollection.items.add(requestElement);
   });
+
 
   const collectionJSON = postmanCollection.toJSON();
 
