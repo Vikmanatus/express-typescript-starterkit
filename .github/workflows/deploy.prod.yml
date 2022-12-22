@@ -1,62 +1,62 @@
-name: Production deployment
+# name: Production deployment
 
-on:
-  push:
-    branches: [main]
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+# on:
+#   push:
+#     branches: [main]
+#   # Allows you to run this workflow manually from the Actions tab
+#   workflow_dispatch:
 
-jobs:
-  test:
-    name: Running tests with Jest
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Debugging local files
-        run: ls -al
-      - name: Installing application dependencies
-        run: yarn install
-      - name: Run test with Jest
-        run: yarn test
+# jobs:
+#   test:
+#     name: Running tests with Jest
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v3
+#       - name: Debugging local files
+#         run: ls -al
+#       - name: Installing application dependencies
+#         run: yarn install
+#       - name: Run test with Jest
+#         run: yarn test
 
-  compile-typescript:
-    needs: test
-    name: Authentificate the worklow and deploy the app to App Engine
-    runs-on: ubuntu-latest
-    # env:
-    #   SERVICE_ACCOUNT_EMAIL: '${{secrets.SERVICE_ACCOUNT_EMAIL}}'
-    #   WORKLOAD_IDENTITY_PROVIDER: '${{secrets.WORKLOAD_IDENTITY_PROVIDER}}'
-    # Add "id-token" with the intended permissions.
-    permissions:
-      contents: 'read'
-      id-token: 'write'
-    steps:
-      - uses: actions/checkout@v3
-      - name: debugging local files
-        run: ls -al
-      - name: 'Authenticate to Google Cloud'
-        uses: 'google-github-actions/auth@v1'
-        with:
-          workload_identity_provider: '${{secrets.WORKLOAD_IDENTITY_PROVIDER}}'
-          service_account: '${{secrets.SERVICE_ACCOUNT_EMAIL}}'
-      - name: Testing gcloud version
-        run: gcloud --version
-      # - name: Testing secret extraction
-      #   id: 'secrets'
-      #   uses: 'google-github-actions/get-secretmanager-secrets@v1'
-      #   with:
-      #     secrets: |-
-      #       NODE_ENV:${{secrets.GCP_SECRET_API_PREFIX}}/NODE_ENV
-      # - name: Testing fake secret output
-      #   run: |
-      #     echo '${{ steps.secrets.outputs.NODE_ENV }}' >> .env
-      #     ls -al
-      - name: Deploy to App Engine
-        id: deploy
-        uses: google-github-actions/deploy-appengine@v1
-        with:
-          deliverables: app.yaml
-          project_id: '${{secrets.GCP_PROJECT}}'
-          version: v0-0-6
-      - name: Test
-        run: curl "${{ steps.deploy.outputs.url }}"
+#   compile-typescript:
+#     needs: test
+#     name: Authentificate the worklow and deploy the app to App Engine
+#     runs-on: ubuntu-latest
+#     # env:
+#     #   SERVICE_ACCOUNT_EMAIL: '${{secrets.SERVICE_ACCOUNT_EMAIL}}'
+#     #   WORKLOAD_IDENTITY_PROVIDER: '${{secrets.WORKLOAD_IDENTITY_PROVIDER}}'
+#     # Add "id-token" with the intended permissions.
+#     permissions:
+#       contents: 'read'
+#       id-token: 'write'
+#     steps:
+#       - uses: actions/checkout@v3
+#       - name: debugging local files
+#         run: ls -al
+#       - name: 'Authenticate to Google Cloud'
+#         uses: 'google-github-actions/auth@v1'
+#         with:
+#           workload_identity_provider: '${{secrets.WORKLOAD_IDENTITY_PROVIDER}}'
+#           service_account: '${{secrets.SERVICE_ACCOUNT_EMAIL}}'
+#       - name: Testing gcloud version
+#         run: gcloud --version
+#       # - name: Testing secret extraction
+#       #   id: 'secrets'
+#       #   uses: 'google-github-actions/get-secretmanager-secrets@v1'
+#       #   with:
+#       #     secrets: |-
+#       #       NODE_ENV:${{secrets.GCP_SECRET_API_PREFIX}}/NODE_ENV
+#       # - name: Testing fake secret output
+#       #   run: |
+#       #     echo '${{ steps.secrets.outputs.NODE_ENV }}' >> .env
+#       #     ls -al
+#       - name: Deploy to App Engine
+#         id: deploy
+#         uses: google-github-actions/deploy-appengine@v1
+#         with:
+#           deliverables: app.yaml
+#           project_id: '${{secrets.GCP_PROJECT}}'
+#           version: v0-0-6
+#       - name: Test
+#         run: curl "${{ steps.deploy.outputs.url }}"
