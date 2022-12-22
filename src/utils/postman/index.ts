@@ -122,6 +122,7 @@ export const generatePostmanCollection = (): void => {
     postmanCollection.items.add(requestElement);
   });
 
+
   const collectionJSON = postmanCollection.toJSON();
 
   fs.writeFile('./collection.json', JSON.stringify(collectionJSON), (err) => {
