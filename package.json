@@ -1,0 +1,22 @@
+{
+  "name": "express-typescript-starterkit",
+  "version": "0.0.1",
+  "description": "A simple starterkit providing boilerplate code for basic Express application",
+  "main": "index.js",
+  "author": "Viktor Stoyanov",
+  "license": "MIT",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vikmanatus/express-typescript-starterkit.git"
+  },
+  "keywords": [
+    "Express",
+    "Typescript",
+    "NodeJs"
+  ],
+  "bugs": {
+    "url": "https://github.com/Vikmanatus/express-typescript-starterkit/issues"
+  },
+  "homepage": "https://github.com/Vikmanatus/express-typescript-starterkit#readme"
+}
