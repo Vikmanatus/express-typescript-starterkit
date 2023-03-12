@@ -16,7 +16,9 @@
     "watch": "tsc -w",
     "lint": "eslint . --ext .ts",
     "generate-postman-collection": "yarn build && ts-node-dev -r tsconfig-paths/register --no-notify build/scripts/generate.postman.collection.js",
-    "build":"tsc"
+    "build":"tsc",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch"
 
   },
   "keywords": [
