@@ -45,7 +45,7 @@ export const postmanConfig: PostmanConfigType = {
   authRoot: {
     matchUrl: permissionConfig.authRoot.matchUrl,
     isAuthRequired: false,
-    requestInformation: { postmanFormType: POSTMAN_FORM_TYPES.NONE, type: REQUEST_TYPES.GET, },
+    requestInformation: { postmanFormType: POSTMAN_FORM_TYPES.NONE, type: REQUEST_TYPES.GET },
     requestName: 'Trigger auth root endpoint',
   },
 };
