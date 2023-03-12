@@ -68,6 +68,7 @@ You simply have to import it in the Postman application, and then you will be re
 `TODO`:
 
 - Find a workaround and remove usage from `tsconfig-paths` and `moragn` to limit as possible dependencies
+- Add `CI` with `Github Actions`
 
 ## 🗒 Ressources
 
