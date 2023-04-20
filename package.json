@@ -54,6 +54,6 @@
     "express-rate-limit": "^6.7.0",
     "helmet": "^6.0.1",
     "morgan": "^1.10.0",
-    "tsconfig-paths": "^4.1.2"
+    "tsconfig-paths": "^4.2.0"
   }
 }
