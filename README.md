@@ -18,7 +18,15 @@ Please open a first terminal and run the following command:
 yarn watch
 ```
 
-Then, in another terminal please run the following command:
+### 🐛 Debugging the project
+
+If you want to run the project with VSCode debugger, simply go to the `Run and debug` section of your IDE
+
+Then select the `Debug` option from the dropdown menu, and press ▷ to run (F5).
+
+### Without debugger
+
+Please open a second terminal and run the following command:
 
 ```bash
 yarn dev
