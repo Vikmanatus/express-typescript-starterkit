@@ -12,7 +12,8 @@
   },
   "scripts": {
     "start": "TS_NODE_BASEURL=./build node -r tsconfig-paths/register build/src/server.js",
-    "dev": "ts-node-dev -r tsconfig-paths/register --no-notify build/src/server.js",
+    "dev:debug": "ts-node-dev --transpile-only --respawn --inspect=4321 --project tsconfig.json src/server.ts",
+    "dev": "ts-node-dev --transpile-only --respawn --project tsconfig.json src/server.ts",
     "watch": "tsc -w",
     "lint": "eslint . --ext .ts",
     "generate-postman-collection": "yarn build && ts-node-dev -r tsconfig-paths/register --no-notify build/scripts/generate.postman.collection.js",
