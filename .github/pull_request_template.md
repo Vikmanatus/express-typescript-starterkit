@@ -1,12 +1,12 @@
-# Overview
+## Overview
 
 Quick overview of the changes
 
-# Changes
+## Changes
 
 - Describe your changes precisely
 
-# Checklist
+## Checklist
 
-[ ] Issue checklist completed
-[ ] Automated tests
+- [ ] Issue checklist completed
+- [ ] Automated tests
