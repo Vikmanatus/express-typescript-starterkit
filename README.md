@@ -72,11 +72,11 @@ You simply have to import it in the Postman application, and then you will be re
 - Basic rate limiting usage example on routes
 - `Postman` collection auto-generated supporting image upload, `URL-encoded` form, `JSON` body
 - Added unit test example with `jest` with coverage report
+- Basic CI setup with `Github Actions`
 
 `TODO`:
 
 - Find a workaround and remove usage from `tsconfig-paths` and `moragn` to limit as possible dependencies
-- Add `CI` with `Github Actions`
 
 ## 🗒 Ressources
 
