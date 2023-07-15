@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  checking-version-file-config:
+  test-api:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
