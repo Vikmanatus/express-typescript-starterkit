@@ -18,7 +18,15 @@ Please open a first terminal and run the following command:
 yarn watch
 ```
 
-Then, in another terminal please run the following command:
+### 🐛 Debugging the project
+
+If you want to run the project with VSCode debugger, simply go to the `Run and debug` section of your IDE
+
+Then select the `Debug` option from the dropdown menu, and press ▷ to run (F5).
+
+### Without debugger
+
+Please open a second terminal and run the following command:
 
 ```bash
 yarn dev
@@ -64,11 +72,11 @@ You simply have to import it in the Postman application, and then you will be re
 - Basic rate limiting usage example on routes
 - `Postman` collection auto-generated supporting image upload, `URL-encoded` form, `JSON` body
 - Added unit test example with `jest` with coverage report
+- Basic CI setup with `Github Actions`
 
 `TODO`:
 
 - Find a workaround and remove usage from `tsconfig-paths` and `moragn` to limit as possible dependencies
-- Add `CI` with `Github Actions`
 
 ## 🗒 Ressources
 

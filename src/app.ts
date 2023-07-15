@@ -10,6 +10,7 @@ const app = express();
 
 app.use(helmet({ xssFilter: true, hidePoweredBy: true }));
 
+
 if (NODE_ENV === 'development') {
   /**
    * Used to display information about incoming HTTP requests in the terminal
@@ -38,6 +39,7 @@ app.use(express.urlencoded({ extended: true }));
  * Root API home
  */
 app.get(permissionConfig.home.url, (_req: Request, res: TypedResponse<BasicJsonResponse>) => {
+  
   return res.status(200).json({ message: 'Welcolme to express-typescript-starterkit', success: true });
 });
 
